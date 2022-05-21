@@ -3,6 +3,7 @@ import Grid from "@mui/material/Grid";
 import Header from "./Header";
 import Register from "./Register";
 import ListRegistration from "./ListRegistration";
+import Footer from "./Footer";
 
 function Home() {
   return (
@@ -16,7 +17,9 @@ function Home() {
       <Grid item>
         <ListRegistration />
       </Grid>
-      <Grid item>Rodape</Grid>
+      <Grid item>
+        <Footer />
+      </Grid>
     </Grid>
   );
 }

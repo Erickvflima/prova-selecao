@@ -1,12 +1,19 @@
 import { makeStyles } from "@mui/styles";
 import { Theme } from "@mui/material/styles";
 import imgHeader from "../assets/image/img-header.png";
+import imgFooter from "../assets/image/rodape-desktop.jpg";
 
 const useStyles = makeStyles((theme: Theme) => {
   return {
     headerImg: {
       minHeight: "79vh",
       backgroundImage: `url(${imgHeader})`,
+      backgroundRepeat: "no-repeat",
+      backgroundSize: "contain",
+    },
+    footerImg: {
+      height: "100vh",
+      backgroundImage: `url(${imgFooter})`,
       backgroundRepeat: "no-repeat",
       backgroundSize: "contain",
     },
@@ -29,6 +36,10 @@ const useStyles = makeStyles((theme: Theme) => {
     textColorBlue: {
       color: "#29abe2",
       margin: "5px 0 5px 0",
+    },
+    borderTable: {
+      border: 1,
+      color: "#29abe2",
     },
   };
 });

@@ -10,11 +10,14 @@ function Header() {
     <Grid container>
       <Grid item xs={12} sm={12} md={12} lg={12}>
         <Paper className={classes.headerImg}>
-          <Grid container justifyContent={"space-around"}>
+          <Grid
+            container
+            justifyContent={"space-around"}
+            sx={{ backgroundColor: "#1C1C1C80" }}
+          >
             <Grid item marginTop="5px">
               <img src={logo} alt="logo" />
             </Grid>
-
             <Grid item direction="row">
               <Grid container color={"primary"}>
                 <Grid item className={classes.styleMenuHeadertext}>

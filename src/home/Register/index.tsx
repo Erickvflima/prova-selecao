@@ -54,7 +54,7 @@ function Register() {
             variant="standard"
           />
         </Grid>
-        <Grid item display="flex" justifyContent="center">
+        <Grid item display="flex" justifyContent="center" margin="40px">
           <Button variant="contained" color="secondary">
             <h2 className={classes.textColorBlue}>CADASTRAR</h2>
           </Button>
