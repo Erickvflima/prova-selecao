@@ -51,7 +51,6 @@ export const cobapReducer = createSlice({
       })
       .addCase(personDataList.fulfilled, (state, action) => {
         state.status = "completed";
-        state.message = action.payload.message;
         state.type = action.type;
         state.personDataList = action.payload;
       })

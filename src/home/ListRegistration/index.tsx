@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Table,
   TableBody,
@@ -17,6 +17,8 @@ import useStyles from "../styles";
 
 function ListRegistration() {
   const classes = useStyles();
+  const [listArray, setListArray] = useState<string[]>(["", "", "", ""]);
+
   const createData = (
     name: string,
     email: string,
@@ -29,11 +31,18 @@ function ListRegistration() {
   const personDataRedux = useAppSelector((state) => {
     return state.personData;
   });
-  console.log(personDataRedux);
+
   const rowsData = personDataRedux.personDataList;
-  console.log(rowsData);
+  console.log(rowsData.document);
+  useEffect(() => {
+    if (typeof rowsData.document[0]?.name === "string") {
+      const dataList = Object.values(rowsData.document[0]);
+      setListArray(dataList);
+    }
+  }, [rowsData]);
+
   const rows = [
-    createData("Erick Lima", "as@gmail.com", "04/02/1995", "(31)98467-5300"),
+    createData(listArray[0], "as@gmail.com", "04/02/1995", "(31)98467-5300"),
     createData("Teste dois", "aswer@gmail.com", "01/02/1995", "(31)98467-5300"),
     createData("Teste tres", "aswer@gmail.com", "2/02/1995", "(31)98467-5300"),
     createData(
