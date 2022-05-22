@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useAppDispatch } from "../../hooks";
+
 import { Grid, TextField, Box, Button } from "@mui/material";
 import useStyles from "../styles";
+import { personDataList } from "../../store/ducks/PersonData";
 
 function Register() {
   const classes = useStyles();
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(personDataList());
+  }, []);
 
   return (
     <Grid

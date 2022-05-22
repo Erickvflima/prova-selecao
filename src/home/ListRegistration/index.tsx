@@ -11,6 +11,7 @@ import {
   Paper,
   Button,
 } from "@mui/material";
+import { useAppSelector } from "../../hooks";
 
 import useStyles from "../styles";
 
@@ -25,6 +26,12 @@ function ListRegistration() {
     return { name, email, nascimento, telefone };
   };
 
+  const personDataRedux = useAppSelector((state) => {
+    return state.personData;
+  });
+  console.log(personDataRedux);
+  const rowsData = personDataRedux.personDataList;
+  console.log(rowsData);
   const rows = [
     createData("Erick Lima", "as@gmail.com", "04/02/1995", "(31)98467-5300"),
     createData("Teste dois", "aswer@gmail.com", "01/02/1995", "(31)98467-5300"),
