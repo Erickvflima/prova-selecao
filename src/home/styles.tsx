@@ -6,16 +6,19 @@ import imgFooter from "../assets/image/rodape-desktop.jpg";
 const useStyles = makeStyles((theme: Theme) => {
   return {
     headerImg: {
-      minHeight: "79vh",
+      height: "100vh",
       backgroundImage: `url(${imgHeader})`,
       backgroundRepeat: "no-repeat",
-      backgroundSize: "contain",
+      backgroundAttachment: "fixed",
+      backgroundSize: "cover",
     },
+    alignImg: {},
     footerImg: {
-      height: "100vh",
+      height: "30vh",
+      width: "100%",
       backgroundImage: `url(${imgFooter})`,
       backgroundRepeat: "no-repeat",
-      backgroundSize: "contain",
+      backgroundSize: "cover",
     },
     styleHeadertext: {
       color: theme.palette.primary.main,
