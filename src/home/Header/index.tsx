@@ -20,7 +20,7 @@ function Header() {
             <Grid item marginTop="5px">
               <img src={logo} alt="logo" />
             </Grid>
-            <Grid item direction="row">
+            <Grid item>
               <Grid container color={"primary"}>
                 <Grid item className={classes.styleMenuHeadertext}>
                   <Button>cadastro</Button>
