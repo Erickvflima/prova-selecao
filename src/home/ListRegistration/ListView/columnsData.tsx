@@ -1,6 +1,6 @@
 /* eslint-disable react/react-in-jsx-scope  */
 import { MUIDataTableColumn } from "mui-datatables";
-import { personDataInterface } from "../../interfaces/personData";
+import { personDataInterface } from "../../../interfaces/personData";
 
 const getColumns = (
   persondataListList?: personDataInterface

@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { useAppDispatch, useAppSelector } from "../../hooks";
+import { useAppDispatch } from "../../hooks";
 import {
   Grid,
   TextField,
-  Box,
   Button,
   CardContent,
   Typography,
@@ -28,31 +27,23 @@ function Register({ personDataParams = undefined, create = true }: Props) {
     useState<Partial<personDataInterface["document"][0] | undefined>>(
       personDataParams
     );
-  const [curretvalues, setCurretvalues] = useState(false);
-  const { personDataList: personDataListStore } = useAppSelector((state) => {
-    return state.personData;
-  });
-  useEffect(() => {
-    dispatch(personDataList());
-  }, [curretvalues]);
+
   useEffect(() => {
     if (personData) {
+      dispatch(personDataList());
       setPersonData({
         ...personData,
         name: personData.name || "",
         telefone: maskCel(personData.telefone || ""),
       });
     }
-  }, []);
+  }, [personData]);
   const formik = useFormik({
     enableReinitialize: true,
     initialValues: personData || {},
     validationSchema,
     onSubmit: async (values) => {
-      console.log("On onSubmit");
       dispatch(personDataPost(values));
-      setCurretvalues(true);
-      dispatch(personDataList());
     },
   });
 
@@ -163,7 +154,14 @@ function Register({ personDataParams = undefined, create = true }: Props) {
             <Grid item>
               <Grid container direction="row" justifyContent="flex-end">
                 <Grid item>
-                  <Button type="submit" variant="contained" color="secondary">
+                  <Button
+                    type="submit"
+                    onClick={() => {
+                      dispatch(personDataList());
+                    }}
+                    variant="contained"
+                    color="secondary"
+                  >
                     <h2 className={classes.textColorBlue}>CADASTRAR</h2>
                   </Button>
                 </Grid>

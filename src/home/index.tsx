@@ -2,8 +2,8 @@ import React from "react";
 import Grid from "@mui/material/Grid";
 import Header from "./Header";
 import Register from "./Register";
-import ListRegistration from "./ListRegistration";
 import Footer from "./Footer";
+import ListData from "./ListRegistration";
 
 function Home() {
   return (
@@ -15,7 +15,7 @@ function Home() {
         <Register />
       </Grid>
       <Grid item>
-        <ListRegistration />
+        <ListData />
       </Grid>
       <Grid item>
         <Footer />
