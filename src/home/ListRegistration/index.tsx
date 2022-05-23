@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useEffect, useMemo } from "react";
 import MUIDataTable, {
   MUIDataTableColumn,
   MUIDataTableOptions,
@@ -9,10 +9,10 @@ import theme from "../../styles";
 
 import useStyles from "../styles";
 import { Grid, ThemeProvider } from "@mui/material";
+import { personDataList } from "../../store/ducks/PersonData";
 
 function ListRegistration() {
   const classes = useStyles();
-
   const { personDataList: personDataListStore } = useAppSelector((state) => {
     return state.personData;
   });

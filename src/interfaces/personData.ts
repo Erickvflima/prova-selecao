@@ -8,3 +8,9 @@ export interface personDataInterface {
     telefone: string;
   }[];
 }
+export interface postPersonDataPost {
+  name?: string;
+  email?: string;
+  nascimento?: string;
+  telefone?: string;
+}

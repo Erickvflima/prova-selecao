@@ -45,6 +45,9 @@ const useStyles = makeStyles((theme: Theme) => {
       border: 1,
       color: "#29abe2",
     },
+    textFieldSize: {
+      width: "400px",
+    },
   };
 });
 

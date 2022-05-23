@@ -1,8 +1,11 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { AxiosError } from "axios";
-import { personDataInterface } from "../../../interfaces/personData";
+import {
+  personDataInterface,
+  postPersonDataPost,
+} from "../../../interfaces/personData";
 import { reduxTemplate } from "../../../interfaces/redux";
-import { getPersonData } from "./services";
+import { getPersonData, postPersonData } from "./services";
 
 export const personDataList = createAsyncThunk<
   personDataInterface,
@@ -17,9 +20,23 @@ export const personDataList = createAsyncThunk<
     return rejectWithValue(err.response?.data as reduxTemplate);
   }
 });
+export const personDataPost = createAsyncThunk<
+  personDataInterface,
+  postPersonDataPost,
+  { rejectValue: reduxTemplate }
+>("postPersonData", async (payload, { rejectWithValue }) => {
+  try {
+    const data = await postPersonData(payload);
+    return data;
+  } catch (error) {
+    const err = error as AxiosError<reduxTemplate>;
+    return rejectWithValue(err.response?.data as reduxTemplate);
+  }
+});
 
 interface IPersonData extends reduxTemplate {
   personDataList: personDataInterface;
+  personDataPost: personDataInterface;
 }
 
 const initialState: IPersonData = {
@@ -27,6 +44,11 @@ const initialState: IPersonData = {
   message: "",
   type: "",
   personDataList: {
+    status: "",
+    message: "",
+    document: [],
+  },
+  personDataPost: {
     status: "",
     message: "",
     document: [],
@@ -55,6 +77,20 @@ export const personDataReducer = createSlice({
         state.personDataList = action.payload;
       })
       .addCase(personDataList.rejected, (state, action) => {
+        state.status = "failed";
+        state.message = action.payload?.message || "";
+        state.type = action.type;
+      })
+      .addCase(personDataPost.pending, (state, action) => {
+        state.status = "loading";
+        state.type = action.type;
+      })
+      .addCase(personDataPost.fulfilled, (state, action) => {
+        state.status = "completed";
+        state.type = action.type;
+        state.personDataPost = action.payload;
+      })
+      .addCase(personDataPost.rejected, (state, action) => {
         state.status = "failed";
         state.message = action.payload?.message || "";
         state.type = action.type;
