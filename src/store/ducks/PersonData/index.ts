@@ -33,11 +33,11 @@ const initialState: IPersonData = {
   },
 };
 
-export const cobapReducer = createSlice({
-  name: "cobap",
+export const personDataReducer = createSlice({
+  name: "personData",
   initialState,
   reducers: {
-    clearStatusCobap: (state) => {
+    clearStatusPersonData: (state) => {
       state.status = "idle";
       state.message = "";
       state.type = "";
@@ -61,5 +61,5 @@ export const cobapReducer = createSlice({
       });
   },
 });
-export const { clearStatusCobap } = cobapReducer.actions;
-export default cobapReducer.reducer;
+export const { clearStatusPersonData } = personDataReducer.actions;
+export default personDataReducer.reducer;
