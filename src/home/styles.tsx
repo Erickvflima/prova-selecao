@@ -37,6 +37,7 @@ const useStyles = makeStyles((theme: Theme) => {
       backgroundColor: "#012d51",
     },
     textColorBlue: {
+      fontFamily: "sans-serif",
       color: "#29abe2",
       margin: "5px 0 5px 0",
     },

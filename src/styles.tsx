@@ -14,6 +14,18 @@ const theme = createTheme({
       "sans-serif",
     ].join(","),
   },
+  components: {
+    MuiTableCell: {
+      styleOverrides: {
+        root: {
+          borderLeft: "1px solid #29abe2",
+          borderRight: "1px solid #29abe2",
+          borderBottom: "1px solid #29abe2",
+          color: "gray",
+        },
+      },
+    },
+  },
 });
 
 export default theme;

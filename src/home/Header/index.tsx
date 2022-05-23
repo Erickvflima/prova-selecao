@@ -13,7 +13,9 @@ function Header() {
           <Grid
             container
             justifyContent={"space-around"}
-            sx={{ backgroundColor: "#1C1C1C80" }}
+            // sx={{
+            //   backgroundColor: "#1C1C1C80",
+            // }}
           >
             <Grid item marginTop="5px">
               <img src={logo} alt="logo" />
